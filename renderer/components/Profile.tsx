@@ -1,12 +1,16 @@
 import React from "react";
+import styles from "../styles/components/Profile.module.css";
 
 const Profile: React.FC = () => {
   return (
-    <div>
+    <div className={styles.profileContainer}>
       <img src="http://github.com/apsampaio.png" alt="profile" />
       <div>
         <strong>Andre Sampaio</strong>
-        <p>Level 1</p>
+        <p>
+          <img src="icons/level.svg" alt="Level" />
+          Level 1
+        </p>
       </div>
     </div>
   );
