@@ -9,6 +9,7 @@ const Home = () => {
         <title>Home</title>
       </Head>
       <ExperienceBar />
+      <section>//TODO 37:19 Video</section>
     </div>
   );
 };
