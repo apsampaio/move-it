@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import ExperienceBar from "../components/ExperienceBar";
+import Profile from "../components/Profile";
 
 const Home = () => {
   return (
@@ -9,7 +10,12 @@ const Home = () => {
         <title>Home</title>
       </Head>
       <ExperienceBar />
-      <section>//TODO 37:19 Video</section>
+      <section>
+        <div>
+          <Profile />
+        </div>
+        <div></div>
+      </section>
     </div>
   );
 };
