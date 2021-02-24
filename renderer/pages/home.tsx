@@ -7,6 +7,7 @@ import CompletedChallenges from "../components/CompletedChallenges";
 import Countdown from "../components/Countdown";
 
 import styles from "../styles/pages/Home.module.css";
+import ChallengeBox from "../components/ChallengeBox";
 
 const Home = () => {
   return (
@@ -21,7 +22,9 @@ const Home = () => {
           <CompletedChallenges />
           <Countdown />
         </div>
-        <div></div>
+        <div>
+          <ChallengeBox />
+        </div>
       </section>
     </div>
   );
