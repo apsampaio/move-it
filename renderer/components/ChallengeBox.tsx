@@ -4,7 +4,7 @@ import { ChallengesContext } from "../hooks/ChallengeContext";
 import styles from "../styles/components/ChallengeBox.module.css";
 
 const ChallengeBox: React.FC = () => {
-  const { activeChallenge } = useContext(ChallengesContext);
+  const { activeChallenge, resetChallenge } = useContext(ChallengesContext);
 
   return (
     <div className={styles.challengeBoxContainer}>
@@ -17,7 +17,11 @@ const ChallengeBox: React.FC = () => {
             <p>{activeChallenge.description}</p>
           </main>
           <footer>
-            <button type="button" className={styles.challengeFailedButton}>
+            <button
+              type="button"
+              className={styles.challengeFailedButton}
+              onClick={resetChallenge}
+            >
               Falhei
             </button>
             <button type="button" className={styles.challengeCompletedButton}>

@@ -13,7 +13,9 @@ interface ChallengesContextData {
   currentExperience: number;
   startNewChallenge: () => void;
   levelUp: () => void;
+  resetChallenge: () => void;
   activeChallenge: ActiveChallengeDTO;
+  experienceToNextLevel: number;
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData);
@@ -23,6 +25,7 @@ export const ChallengesProvider: React.FC = ({ children }) => {
   const [currentExperience, setCurrentExperience] = useState(0);
   const [challengesCompleted, setChallengesCompleted] = useState(0);
   const [activeChallenge, setActiveChallenge] = useState(null);
+  const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
   const startNewChallenge = () => {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
@@ -34,14 +37,20 @@ export const ChallengesProvider: React.FC = ({ children }) => {
     setLevel(level + 1);
   };
 
+  const resetChallenge = () => {
+    setActiveChallenge(null);
+  };
+
   return (
     <ChallengesContext.Provider
       value={{
+        experienceToNextLevel,
         level,
         challengesCompleted,
         currentExperience,
         startNewChallenge,
         levelUp,
+        resetChallenge,
         activeChallenge,
       }}
     >
