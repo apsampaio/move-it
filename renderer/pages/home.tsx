@@ -8,6 +8,7 @@ import Countdown from "../components/Countdown";
 
 import styles from "../styles/pages/Home.module.css";
 import ChallengeBox from "../components/ChallengeBox";
+import { CountdownProvider } from "../hooks/CountdownContext";
 
 const Home = () => {
   return (
@@ -16,16 +17,18 @@ const Home = () => {
         <title>Home</title>
       </Head>
       <ExperienceBar />
-      <section>
-        <div>
-          <Profile />
-          <CompletedChallenges />
-          <Countdown />
-        </div>
-        <div>
-          <ChallengeBox />
-        </div>
-      </section>
+      <CountdownProvider>
+        <section>
+          <div>
+            <Profile />
+            <CompletedChallenges />
+            <Countdown />
+          </div>
+          <div>
+            <ChallengeBox />
+          </div>
+        </section>
+      </CountdownProvider>
     </div>
   );
 };
