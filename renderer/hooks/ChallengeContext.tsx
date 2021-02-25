@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import challenges from "../../challenges.json";
+import challenges from "../database/challenges.json";
 
 interface ActiveChallengeDTO {
   type: string;
@@ -25,10 +25,9 @@ export const ChallengesProvider: React.FC = ({ children }) => {
   const [activeChallenge, setActiveChallenge] = useState(null);
 
   const startNewChallenge = () => {
-    const randomChallengeIndex = Math.random() * Math.floor(challenges.length);
+    const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
     const challenge = challenges[randomChallengeIndex];
     setActiveChallenge(challenge);
-    console.log("here");
   };
 
   const levelUp = () => {
