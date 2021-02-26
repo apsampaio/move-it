@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import challenges from "../database/challenges.json";
+import Cookies from "js-cookie";
 
 interface ActiveChallengeDTO {
   type: string;
@@ -31,6 +32,12 @@ export const ChallengesProvider: React.FC = ({ children }) => {
   useEffect(() => {
     Notification.requestPermission();
   }, []);
+
+  useEffect(() => {
+    Cookies.set("level", String(level));
+    Cookies.set("levecurrentExperiencel", String(currentExperience));
+    Cookies.set("challengesCompleted", String(challengesCompleted));
+  }, [level, currentExperience, challengesCompleted]);
 
   const startNewChallenge = () => {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);

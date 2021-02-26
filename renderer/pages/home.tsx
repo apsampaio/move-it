@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { GetServerSideProps } from "next";
 
 import ExperienceBar from "../components/ExperienceBar";
 import Profile from "../components/Profile";
@@ -10,7 +11,7 @@ import styles from "../styles/pages/Home.module.css";
 import ChallengeBox from "../components/ChallengeBox";
 import { CountdownProvider } from "../hooks/CountdownContext";
 
-const Home = () => {
+const Home: React.FC = (props) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -34,3 +35,15 @@ const Home = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+
+  return {
+    props: {
+      level,
+      currentExperience,
+      challengesCompleted,
+    },
+  };
+};
