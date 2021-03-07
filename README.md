@@ -29,7 +29,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Typescript
 - Electron.js
 - Next.js
-- Styled-Components
 
 ## 💻 Projeto
 
